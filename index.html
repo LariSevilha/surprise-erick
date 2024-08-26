@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Homenagem</title>
+    <style> 
+        body {
+            background-color: #f5e6e8; /* Fundo rosa suave */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Georgia', serif; /* Fonte elegante */
+        }
+
+        .p {
+            font-size: 1.5rem; 
+            color: #6a4c93; /* Roxo suave */
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px; /* Aumenta a largura máxima do texto */
+            margin: 0 auto 20px auto; /* Centraliza e adiciona margem inferior */
+            box-shadow: 0px 4px 15px rgba(106, 76, 147, 0.3); /* Sombra suave */
+            z-index: 1;
+        }
+
+        #playButton {
+            background-color: #e29fb7; /* Rosa pastel */
+            border-color: #e29fb7; 
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0px 4px 10px rgba(226, 159, 183, 0.5);
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            z-index: 1;
+            margin-top: -10px; /* Aproxima o botão do texto */
+        }
+
+        #playButton:hover {
+            background-color: #d18aa3; /* Rosa mais escuro para hover */
+            border-color: #d18aa3;
+            transform: scale(1.1);
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(-45deg);
+            animation: float 5s infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(-45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(-45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+
+        
+
+        /* Estilos para telas menores */
+        @media (max-width: 768px) {
+            .p {
+                font-size: 1.2rem;
+                padding: 15px;
+                max-width: 90%; /* Ajusta a largura para telas menores */
+            }
+
+            #playButton {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="p">
+        Fiz essa homenagem para que cada vez que você entrar nessa página, você lembre de nós, lembre de todos os momentos que vivemos e lembre de que você nunca vai estar só.
+        Você sabe onde queremos chegar, você é a metade que faltava em minha vida, com você eu aprendi a amar.
+        Essa homenagem trás uma retrospectiva de tudo que passamos, tudo que aprendemos e o tanto que nós amamos.
+        Finalizo com a nossa frase: “te amo mais que ontem e menos que amanhã”, aproveite bem minha princesa❤️….
+    </div>
+    
+    <a href='index2.html'>
+        <button id="playButton">Veja mais</button>
+    </a>
+
+    <div id="hearts-container"></div> 
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 5 + 3 + 's';
+            heart.style.opacity = Math.random() * 0.7 + 0.3; 
+            document.getElementById('hearts-container').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 400);
+    </script>
+</body>
+</html>
