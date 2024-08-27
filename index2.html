@@ -113,7 +113,6 @@
             <div class="carousel-item active">
                 <img src="img/1.jpeg" alt="Slide 1">
             </div>
-            <!-- Gerar os outros itens dinamicamente -->
             <script>
                 for (let i = 2; i <= 20; i++) {
                     document.write(`
@@ -140,7 +139,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-        <div class="carousel-date">Feliz aniversário, amor ❤️</div>
+        <div class="carousel-date">Feliz aniversário, aamor ❤️</div>
     </div>
     
     
@@ -152,17 +151,25 @@
 </body>
 </html>
 <script>
- window.addEventListener('load', () => {
-            const audio = document.getElementById('background-audio');
-            audio.play().catch(error => {
-                console.error('Erro ao tentar reproduzir o áudio:', error);
-                const playButton = document.getElementById('playButton');
-                playButton.classList.remove('d-none');
-                playButton.addEventListener('click', () => {
-                    audio.play().catch(error => {
-                        console.error('Erro ao tentar reproduzir o áudio manualmente:', error);
-                    });
+window.addEventListener('load', () => {
+    const audio = document.getElementById('background-audio');
+    const playButton = document.getElementById('playButton');
+    
+    if (sessionStorage.getItem('audioPlayed') !== 'true') {
+        audio.play().catch(error => {
+            console.error('Erro ao tentar reproduzir o áudio:', error);
+            playButton.classList.remove('d-none');
+            playButton.addEventListener('click', () => {
+                audio.play().catch(error => {
+                    console.error('Erro ao tentar reproduzir o áudio manualmente:', error);
                 });
+                sessionStorage.setItem('audioPlayed', 'true');
             });
         });
+    }
+});
+
+window.addEventListener('beforeunload', () => {
+    sessionStorage.removeItem('audioPlayed');
+});
 </script>
