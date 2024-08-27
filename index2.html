@@ -143,29 +143,26 @@
         <div class="carousel-date">Feliz aniversário, amor ❤️</div>
     </div>
     
-    
     <audio id="background-audio" src="musica.mp3" autoplay loop></audio>
+    
     <div class="back-button-container">
-        <button id="playButton" class="btn btn-primary d-none">Cliique para tocar a música</button>
+        <button id="playButton" class="btn btn-primary d-none">Clique para tocar a música</button>
         <a href='index.html'><button>Voltar</button></a>
     </div>
 </body>
 </html>
 <script>
-window.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('background-audio');
-    const playButton = document.getElementById('playButton');
-
-    audio.play().catch(error => {
-        console.error('Erro ao tentar reproduzir o áudio:', error);
-        playButton.classList.remove('d-none');
-    });
-
-    playButton.addEventListener('click', () => {
-        audio.play().catch(error => {
-            console.error('Erro ao tentar reproduzir o áudio manualmente:', error);
+ window.addEventListener('load', () => {
+            const audio = document.getElementById('background-audio');
+            audio.play().catch(error => {
+                console.error('Erro ao tentar reproduzir o áudio:', error);
+                const playButton = document.getElementById('playButton');
+                playButton.classList.remove('d-none');
+                playButton.addEventListener('click', () => {
+                    audio.play().catch(error => {
+                        console.error('Erro ao tentar reproduzir o áudio manualmente:', error);
+                    });
+                });
+            });
         });
-    });
-});
-
 </script>
