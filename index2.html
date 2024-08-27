@@ -93,12 +93,12 @@
                 font-size: 13px;
             }
         }
+
         #playButton {
             background-color: #ff69b4;  
             border-color: #ff85c3;  
             color: white;
             border-radius: 50px;  
-            
         }
 
         #playButton:hover {
@@ -113,6 +113,7 @@
             <div class="carousel-item active">
                 <img src="img/1.jpeg" alt="Slide 1">
             </div>
+            <!-- Gerar os outros itens dinamicamente -->
             <script>
                 for (let i = 2; i <= 20; i++) {
                     document.write(`
@@ -139,9 +140,8 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-        <div class="carousel-date">Feliz aniversário, aamor ❤️</div>
+        <div class="carousel-date">Feliz aniversário, amor ❤️</div>
     </div>
-    
     
     <div class="back-button-container">
         <button id="playButton" class="btn btn-primary d-none">Clique para tocar a música</button>
@@ -150,26 +150,28 @@
     <audio id="background-audio" src="musica.mp3" autoplay loop></audio>
 </body>
 </html>
+
 <script>
-window.addEventListener('load', () => {
-    const audio = document.getElementById('background-audio');
-    const playButton = document.getElementById('playButton');
-    
-    if (sessionStorage.getItem('audioPlayed') !== 'true') {
+    window.addEventListener('load', () => {
+        const audio = document.getElementById('background-audio');
+        const playButton = document.getElementById('playButton');
+
         audio.play().catch(error => {
             console.error('Erro ao tentar reproduzir o áudio:', error);
             playButton.classList.remove('d-none');
-            playButton.addEventListener('click', () => {
-                audio.play().catch(error => {
-                    console.error('Erro ao tentar reproduzir o áudio manualmente:', error);
-                });
-                sessionStorage.setItem('audioPlayed', 'true');
+        });
+
+        playButton.addEventListener('click', () => {
+            audio.play().catch(error => {
+                console.error('Erro ao tentar reproduzir o áudio manualmente:', error);
             });
         });
-    }
-});
+    });
 
-window.addEventListener('beforeunload', () => {
-    sessionStorage.removeItem('audioPlayed');
-});
+    // Forçar a página a recarregar sempre que for acessada
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    });
 </script>
