@@ -13,6 +13,7 @@
             justify-content: center;
             align-items: center; 
             box-sizing: border-box;
+            overflow: hidden;
         }
 
         .container {
@@ -26,8 +27,7 @@
             background-color: black !important;
             border-radius: 10px;
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-            margin: 30px;
-            text-align: center; 
+            margin: 30px; 
             width: 80%;
         }
 
@@ -78,7 +78,7 @@
         }
 
         .back-button-container button {
-            background-color: #ff69b4; 
+            background-color: rgb(150, 7, 107); 
             color: white;
             font-size: 1rem;
             padding: 10px 20px;
@@ -90,7 +90,7 @@
         }
 
         .back-button-container button:hover {
-            background-color: #ff85c3;  
+            background-color: rgb(150, 7, 107);  
         }
 
         @media (max-width: 768px) {
@@ -110,26 +110,32 @@
         }
 
         #playButton {
-            background-color: #ff85c3;  
-            border-color: #ff85c3;  
+            background-color: rgb(150, 7, 107);  
+            border-color: rgb(150, 7, 107);  
             color: white;
             border-radius: 50px;  
         }
 
         #playButton:hover {
-            background-color: #ff85c3;  
-            border-color: #ff85c3;  
+            background-color: rgb(150, 7, 107);  
+            border-color: rgb(150, 7, 107);  
         }
         .text-curto{
             color: white;
+        }
+        .btn{
+         background-color: rgb(150, 7, 107) !important;   
+         border-color: rgb(150, 7, 107);
         }
     </style>
 </head>
 <body>
     <div class="container"> 
+        <hr>
         <div class="text-card card">
             <p class="text-curto">Essas fotos representam momentos preciosos que tivemos juntos.<br><br> Cada uma delas é um lembrete de como você é especial para mim. <strong>Eu te amo!</strong> </p>     
         </div>
+        <hr>
         <div id="carouselExampleIndicators" class="carousel slide carousel-custom" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -169,7 +175,9 @@
         
         <div class="back-button-container">
             <button id="playButton" class="btn btn-primary d-none">Clique para tocar a música</button>
-            <a href='index.html'><button>Voltar</button></a>
+            
+          <a href="index.html" class="btn btn-primary"> <- Voltar</a>
+
         </div>
     </div>
 </body>
