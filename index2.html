@@ -9,18 +9,28 @@
     <style>
         body {
             background-color: #000000;
-            font-family: 'Cursive', sans-serif;
-            height: 100vh;
-            margin: 0;
+            font-family: 'Cursive', sans-serif;  
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: center; 
+            box-sizing: border-box;
         }
 
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin: 20px; /* Adiciona espaço ao redor do contêiner */
+        }
+
+        .text-card {
+            background-color: black !important;
+            /* color: #333;  */
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            margin: 80px;
+            text-align: center; 
+            width: 80%;
         }
 
         .carousel-custom {
@@ -78,6 +88,7 @@
             border-radius: 50px;  
             transition: background-color 0.3s ease-in-out;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 10px; /* Adiciona espaço entre os botões */
         }
 
         .back-button-container button:hover {
@@ -110,10 +121,16 @@
             background-color: #ff85c3;  
             border-color: #ff85c3;  
         }
+        .text-curto{
+            color: white;
+        }
     </style>
 </head>
 <body>
     <div class="container"> 
+        <div class="text-card card">
+            <p class="text-curto">Essas fotos representam momentos preciosos que compartilhamos juntos.<br> Cada uma delas é um lembrete de como você é especial para mim. Eu te amo!</p>     
+        </div>
         <div id="carouselExampleIndicators" class="carousel slide carousel-custom" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -158,16 +175,24 @@
     </div>
 </body>
 <script>
- window.addEventListener('load', () => {
+window.addEventListener('load', () => {
     const audio = document.getElementById('background-audio');
-    audio.play().catch(error => {
-        console.error('Erro ao tentar reproduzir o áudio:', error);
-        const playButton = document.getElementById('playButton');
+    const playButton = document.getElementById('playButton');
+
+    // Tenta reproduzir o áudio automaticamente
+    audio.play().then(() => {
+        console.log('Áudio reproduzido automaticamente');
+    }).catch(error => {
+        console.error('Erro ao tentar reproduzir o áudio automaticamente:', error);
         playButton.classList.remove('d-none');
-        playButton.addEventListener('click', () => {
-            audio.play().catch(error => {
-                console.error('Erro ao tentar reproduzir o áudio manualmente:', error);
-            });
+    });
+
+    // Adiciona um evento de clique ao botão para reproduzir o áudio manualmente
+    playButton.addEventListener('click', () => {
+        audio.play().then(() => {
+            playButton.classList.add('d-none');
+        }).catch(error => {
+            console.error('Erro ao tentar reproduzir o áudio manualmente:', error);
         });
     });
 });

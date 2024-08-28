@@ -15,8 +15,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            font-family: 'Georgia', serif; /* Fonte elegante */
+            margin: 0; 
         }
 
         .p {
@@ -31,24 +30,9 @@
             box-shadow: 0px 4px 15px rgba(106, 76, 147, 0.3);  
             z-index: 1;
         }
-
-        #playButton {
-            background-color: #e29fb7;  
-            border-color: #e29fb7; 
-            color: white;
-            font-size: 1.2rem;
-            padding: 10px 20px;
-            border-radius: 50px;
-            box-shadow: 0px 4px 10px rgba(226, 159, 183, 0.5);
-            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-            z-index: 1;
-            margin-top: -10px;  
-        }
-
-        #playButton:hover {
-            background-color: #d18aa3; 
-            border-color: #d18aa3;
-            transform: scale(1.1);
+        .btn{
+         background-color: rgb(150, 7, 107) !important;   
+         border-color: rgb(150, 7, 107);
         }
 
         .heart {
@@ -108,25 +92,29 @@
                 padding: 15px;
                 max-width: 90%; 
             }
-
-            #playButton {
-                font-size: 1rem;
-                padding: 8px 16px;
-            }
+        }
+        .card-d{ 
+            color: white;
+        }
+        .text{
+            text-align: center;
         }
     </style>
 </head>
-<body>
-    <div class="p">
-        Fiz essa homenagem para que cada vez que você entrar nessa página, você lembre de nós, lembre de todos os momentos que vivemos e lembre de que você nunca vai estar só.
-        Você sabe onde queremos chegar, você é a metade que faltava em minha vida, com você eu aprendi a amar.
-        Essa homenagem trás uma retrospectiva de tudo que passamos, tudo que aprendemos e o tanto que nós amamos.
-        <br>Finalizo com a nossa frase: “te amo mais que ontem e menos que amanhã”, aproveite bem minha princesa❤️
-    </div>
-    
-    <a href='index2.html'>
-        <button id="playButton">Veja mais</button>
-    </a>
+<body> 
+    <div class="card text-center p">
+        <div class="card-header card-d">
+          Oi, amor!
+        </div>
+        <div class="card-body"> 
+          <p class="card-text text"> Fiz essa homenagem para que cada vez que você entrar nessa página, você lembre de nós, lembre de todos os momentos que vivemos e lembre de que você nunca vai estar só.
+            Você sabe onde queremos chegar, você é a metade que faltava em minha vida, com você eu aprendi a amar.
+            Essa homenagem trás uma retrospectiva de tudo que passamos, tudo que aprendemos e o tanto que nós amamos.
+            <br>Finalizo com a nossa frase: “te amo mais que ontem e menos que amanhã”, aproveite bem minha princesa❤️</p>
+          <a href="index2.html" class="btn btn-primary">Continue -></a>
+        </div> 
+      </div>
+     
 
     <div id="hearts-container"></div> 
 
